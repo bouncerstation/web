@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% set title = "Bouncer Station" %}
+{% set thispage = "faq" %}
+{% block content %}
+<h1>Frequently asked questions</h1>
+<dl>
+    <dt>What is ZNC?</dt>
+    <dd>ZNC is an IRC bouncer. It keeps you connected to IRC even when your computer is off. When you reconnect, ZNC replays what you missed. It's as if you never went offline.</dd>
+    <dt>How much does it cost?</dt>
+    <dd>Bouncer Station ZNC accounts are free, but we always appreciate <a href="/donations/">donations</a> :)</dd>
+    <br/>
+    <dt>What version of ZNC do you run?</dt>
+    <dd>We try to always run the latest version of ZNC. Right now, that would be ZNC 1.3-git. We have made modifications to the source code to fit our needs.</dd>
+    <br/>
+    <dt>How many networks can I connect to?</dt>
+    <dd>By default, we limit users to 10 networks. If you need more, just hit us up and we'll increase your limit.</dd>
+    <br/>
+    <dt>How many channels can I be in?</dt>
+    <dd>We do not limit channel count. Unlimited.</dd>
+    <br/>
+    <dt>What's with this "custom configuration panel?" Why don't you just use webadmin?</dt>
+    <dd>We run and support webadmin. The custom configuration panel is designed to support our enhanced logging system. The panel allows you to view and share your logs.</dd>
+    <br/>
+    <dt>Do you offer shell accounts?</dt>
+    <dd>Not right now, sorry. We don't have the funding.</dd>
+    <br/>
+    <dt>Are there any secret donator benefits?</dt>
+    <dd>Maybe.</dd>
+    <br/>
+    <dt>What is a custom BindHost?</dt>
+    <dd>By default, your host shows up as <code>jefferson.bouncerstation.com</code> when you connect to an IRC network. A custom BindHost gives your connection a unique IPv6 address, so it can show up as <code>username.bouncerstation.com</code> or any domain name you own. Note that custom bindhosts will not work on the Freenode network.</dd>
+    <br/>
+    <dt>How do I get a custom BindHost?</dt>
+    <dd>A custom BindHost is a donator benefit, but if you don't want to donate, request one in <code>#help</code> on irc.bouncerstation.com or email us: <code>admin at bouncerstation.com</code>. We can hook you up with one and help you get it set up.</dd>
+    <br/>
+    <dt>Who runs this?</dt>
+    <dd><a href="http://fwilson.me/">Fox Wilson</a> and <a href="http://sdamashek.me/">Samuel Damashek</a>. <a href="/who/">More information here.</a></dd>
+    <br/>
+    <dt>How do I get an account?</dt>
+    <dd>Come visit us in <code>#help</code> on irc.bouncerstation.com to get an account!</dd>
+    <br/>
+    <dt>What if I have ideas for improvements?</dt>
+    <dd>Then tell us :) We always want to hear your ideas for improvement. Drop us an email: <code>admin at bouncerstation dot com</code></dd>
+</dl>
+{% endblock %}

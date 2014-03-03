@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% set title = "Bouncer Station" %}
+{% set thispage = "home" %}
+{% block content %}
+<div class="jumbotron" style="padding:30px;">
+    <h1>Welcome to Bouncer Station</h1>
+    We provide free IRC bouncer services (and more!) for the masses.
+</div>
+<div class="row row-fluid">
+    <div class="col-sm-4">
+        <h3>Powered by ZNC</h3>
+        The robust, feature-packed <a href="http://znc.in/">ZNC software</a> powers our bouncers.
+    </div>
+    <div class="col-sm-4">
+        <h3>99.99% uptime</h3>
+        Bouncer Station can boast 99.99% uptime. Our high-performance, high-availability bouncers are backed by Intel Xeon processors.
+    </div>
+    <div class="col-sm-4">
+        <h3>Custom configuration panel</h3>
+        Our beautiful web administration panel allows you to manage features that we offer. Publish logs and more with just a few clicks.
+    </div>
+</div>
+<div class="row row-fluid">
+    <div class="col-sm-4">
+        <h3>Get push notifications</h3>
+        Always on the go? Bouncer Station integrates with push notification services, like <a href="http://pushover.net/">Pushover</a>. You'll always know when you get a private message or are mentioned.
+    </div>
+    <div class="col-sm-4">
+        <h3>Simple support</h3>
+        Bouncer Station staff are always available in <code>#help</code> on <code>irc.bouncerstation.com</code>. Stop by and ask questions, get help. or just say hi.
+    </div>
+    <div class="col-sm-4">
+        <h3>All for free</h3>
+        All these features are free with a Bouncer Station ZNC account. Even more features are available by donating. Want an account? Drop in <code>#help</code> on irc.bouncerstation.com. 
+    </div>
+</div>
+<!-- <a href="https://plus.google.com/104700851673904767213" rel="publisher">Google+</a> -->
+{% endblock %}

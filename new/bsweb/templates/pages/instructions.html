@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% set title = "Instructions" %}
+{% set thispage = "instruct" %}
+{% block content %}
+<h1>Getting a ZNC account</h1>
+To get a ZNC account, connect to irc.bouncerstation.com, join channel #help, then use the <code>!request</code> command:<br />
+<code>!request preferred-username email@address.com</code><br />
+The ZNC admins will send you an email with your password. You'll then need to click the "webadmin" link to login.
+If you need any additional help with any of the instructions below, chat us up on #help or email us: <code>admin at bouncerstation dot com</code>
+<h1>Using Webadmin</h1>
+<h2>Accessing Webadmin</h2>
+To connect to webadmin, in your browser visit <a href="https://www.bouncerstation.com:8080/">https://www.bouncerstation.com:8080</a> or click the "ZNC Webadmin" button in the Navbar.
+<h2>Logging in</h2>
+When you first visit webadmin, you will have to login. At the top right, enter your ZNC username and ZNC password, which were emailed to you.
+<h2>Changing your settings</h2>
+To change your settings, click on the "Your Settings" link on the navigation menu at the left.<br/>
+Here, you get access to the page where you can change your ZNC password, IRC Nickname, IRC Realname (shown when a <code>/whois</code> is done on your nickname), and several other options.<br/>
+Most options are self-explanatory. If you have any questions about any options, just ask us.
+<h3>BindHost</h3>
+A BindHost is what IP ZNC uses to connect to your IRC servers. You can have it use the default, or you can specify IPv4 or IPv6.<br/>
+Custom BindHosts (included as a donation perk, or contact us) are used to change the hostname shown in IRC from "bouncerstation.com" to your custom domain name, or "username.bouncerstation.com". We can help you set this up. Note that due to our I-Line, custom BindHosts will not work on the Freenode network.
+<h3>Modules</h3>
+There are two types of modules you can choose from: User modules and Network modules. Modules are used to enable new features only for you. If you have a module you would like installed in ZNC, please let us know.<br/>
+All modules have a description, and most will bring you to a Wiki page if you click on their name. They are all easy to configure. If you need help with configuration, ask us.
+<h3>Automatically identifying with NickServ</h3>
+You can use the NickServ module to accomplish this. In a network, select and load the module nickserv.<br/>
+Then, in IRC, <code>/msg *nickserv set {nickserv password}</code> (the * denotes a ZNC module or helper)<br/>
+To view all the NickServ commands, <code>/msg *nickserv help</code><br/>
+<h3>Getting Module help and setting options</h3>
+To view help for any module, <code>/msg *{module} help</code><br/>
+To view ZNC help, <code>/msg *status help</code>
+<h3>Adding a Network</h3>
+To add a network to ZNC, which you can connect to from your choice of clients, click the [Add] button under the Networks section. You will be brought to a page where you can configure the network.<br/>
+If you leave Nick, AltNick, RealName, and BindHost empty, they will inherit from your user settings.<br/>
+Instructions for different IRC networks are listed below. Please note that if a network is not listed, you may still use it, but we have no guarentee doing so is allowed and you take all responsibility for your actions.<br/>
+Want a network added to this list? Contact us! Make sure to include a list of servers, or somewhere where we can find one.
+<h4>Freenode</h4>
+<b>Network Name:</b> <code>Freenode</code><br/>
+<b>Servers:</b> <br/>
+SSL (recommended): <code>chat.freenode.net +6697</code> (this is a round-robin, so the client will connect to any Freenode server, + indicates SSL)<br/>
+Non-SSL: <code>chat.freenode.net 6667</code><br/>
+<h4>GeeksIRC</h4>
+<b>Network Name:</b> <code>GeeksIRC</code><br/>
+<b>Servers:</b><br/>
+SSL (recommended): <code>irc6.geeksirc.net +6697</code> (irc6 specifies IPv6)<br/>
+Non-SSL: <code>irc6.geeksirc.net 6667</code><br/>
+
+<h1>Using ZNC</h1>
+<h2>Using push</h2>
+The push module sends a push message to your device when you are highlighted or you have a PM sent to you.<br/>
+The push module is a network module. You can enable it in webadmin.<br/>
+Instructions on how to set up the push module is located at <a href="https://github.com/jreese/znc-push/blob/master/README.md#configuration">https://github.com/jreese/znc-push/blob/master/README.md#configuration</a>.
+
+<h1>Connecting to ZNC</h1>
+Do you use a different client? Want to contribute to these instructions? Not sure how to connect with your client? Let us know in <code>#bouncerstation</code> on Freenode.
+<h2>Ports you can use</h2>
+<ul>
+    <li>6665</li>
+    <li>6666</li>
+    <li>6667</li>
+    <li>6697 - SSL</li>
+    <li>7000 - SSL</li>
+    <li>7070 - SSL</li>
+    <li>8000</li>
+    <li>8001</li>
+    <li>8002</li>
+    <li>36666</li>
+    <li>36667</li>
+    <li>36668</li>
+    <li>36697 - SSL</li>
+
+</ul>
+<h2>Using webchat</h2>
+Click the "Webchat" link in the navbar to use Bouncer Station's web client. Enter your ZNC username and network as "username/network" in the "Nickname" field. Check the "I have a password" box. Enter your ZNC password in the "password" field. Enter the channel you want to join in the "channel" field. Click "start."
+<h2>Irssi</h2>
+To connect to ZNC using Irssi, first add a new network:
+<code>/network add -user {username}/{network} BouncerStation</code> (Name doesn't matter)
+For example: <code>/network add -user sdamashek/freenode BouncerStation-Freenode</code>
+Then add a server to that network:
+<code>/server add -auto -network BouncerStation bouncerstation.com {portnum} {password}</code> where {portnum} is one of the ports listed and {password} is your ZNC password. If you want to connect using SSL, use an SSL port and use the -ssl option.
+Example: <code>/server add -auto -network -ssl BouncerStation-Freenode bouncerstation.com 7000 hunter2</code>
+Then, you can connect to the network:
+<code>/connect BouncerStation</code>
+Repeat using a new network name for each different ZNC network you have added.
+<h2>Weechat</h2>
+To connect to ZNC using Weechat, you'll first need to add a server:<br />
+<code>/server add bouncerstation bouncerstation.com</code><br />
+Set your username and password:<br />
+<code>/set irc.server.bouncerstation.username yourzncusername/yourzncnetwork</code><br />
+<code>/set irc.server.bouncerstation.password yourzncpassword</code><br />
+Connect to ZNC:<br />
+<code>/connect bouncerstation</code>
+Repeat with a different name for each ZNC network.
+<h2>Hexchat</h2>
+Click the Hexchat menu, then "Network List."<br/>
+Click "Add." Type in the name of the network, in this case, "Bouncer Station."<br/>
+Click "Edit." "Edit" the server, changing it to "bouncerstation.com/6667" (or a different port in the list above).<br/>
+Uncheck "Use global user information." Enter your ZNC username and network (username/network) into the "User name" field, and your ZNC password into the "Password" field.<br/>
+Click "close" then "connect." You should now be connected to ZNC.
+
+<h1>Accessing Logs</h1>
+We use our own custom-built web system to allow users to access their logs and share them with others.<br/>
+You can access it at <a href="https://www.bouncerstation.com/logs/">https://www.bouncerstation.com/logs/</a> or by clicking "ZNC Logs" on the Navbar.<br/>
+Log in with your ZNC username and password.<br/>
+You will then be presented with a list of networks, then under the networks, a list of channels and users. You can click on them to see the raw log.<br/>
+These logs are private and can be seen only by you. If you want to share them with others, click the "Make public" link and copy the URL given. Anybody can see the contents of the log by using this URL.<br/>
+<br/>
+{% endblock %}

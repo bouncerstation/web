@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% set title = "Terms of Service / Privacy Policy" %}
+{% set thispage = "tos" %}
+{% block content %}
+<h1>Terms of service</h1>
+<ol>
+    <li><b>Use common sense.</b> Don't be stupid, don't violate the ToS, and follow the rules of the network you are connecting to.</li>
+    <li><b>Don't spam.</b> This includes attempting a Denial of Service attack on the bouncer. Don't spam users on the network you're connecting to.</li>
+    <li><b>Don't share bouncer credentials.</b> Don't ask for them, and don't give them to other users.</li>
+    <li><b>Bots are allowed, but we're not responsible for them.</b> Servers know who you are. If your bot does a bad thing, you cannot blame us.</li>
+    <li><b>Don't do illegal things.</b> Follow the laws of your locality. Follow United States and California law as well.</li>
+    <li><b>Be reasonable.</b> Try to limit yourself to ten networks. If you need more, let us know. You can have an unlimited number of channels per network.</li>
+    <li><b>One connection per network per account.</b> This should be self-explanatory.</li>
+    <li><b>Servers know who you are.</b> We run an identd. Servers know your ZNC username.</li>
+</ol>
+<h1>Privacy policy</h1>
+<ol>
+    <li><b>We respect your privacy.</b> We never share the information you give us with others (unless it is required by law).</li>
+    <li><b>We don't read your logs.</b> Although we do log all IRC traffic for your personal convenience, we never read these logs unless required by law.</li>
+    <li><b>Access to servers is restricted.</b> The ZNC server is a VPS hosted by <a href="http://inertianetworks.com/">Inertia Networks.</a> Shell access is restricted to ZNC administrators.</li>
+    <li><b>Your passwords are safe.</b> We hash and salt your passwords before storing them. SSL is available for both IRC and webadmin.</li>
+</ol>
+{% endblock %}
