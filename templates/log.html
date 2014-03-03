@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% set thispage = "showlog" %}
+{% block content %}
+<a href="{{ path }}raw/">raw log</a>
+<pre>
+{{ log }}
+</pre>
+{% endblock %}

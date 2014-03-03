@@ -1,0 +1,45 @@
+{% set title = title | default('Bouncer Station') %}
+{% set navbar = [
+    ('/', 'home', 'Dashboard', True),
+    ('/logout/', '', 'Logout', session.user)
+] -%}
+{% set thispage = thispage | default('home') %}
+<html>
+  <head>
+      <title>{{ title }}</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='project.css') }}" />
+  </head>
+  <body style="padding-top:60px;">
+      <div class="container">
+          <div class="navbar navbar-inverse navbar-fixed-top">
+              <div class="container">
+                  <button type="button" class="navbar-toggle" data-toggle=".nav-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="/">Bouncer Station</a>
+                  <div class="nav-collapse collapse">
+                      <ul class="nav navbar-nav">
+                          {% for href, id, caption, condition in navbar %}
+                          {% if condition %}
+                          <li{% if id == thispage %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+                          {% endif %}
+                          {% endfor %}
+                      </ul>
+                      <ul class="nav navbar-nav pull-right">
+                          {% if session.user %}
+                          <li><a>Hi, {{ session.user }}</a></li>
+                          {% endif %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="container">
+              {% block content %}
+              {% endblock %}
+          </div>
+      </div>
+  </body>
+</html>

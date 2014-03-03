@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for network in logs %}
+<a href="{{ url_for('delete_request') }}">Request deletion/disabling of logs</a><br />
+<b>{{ network }}</b><br />
+<blockquote>
+    {% for channel in logs[network] %}
+    <a href="{{ url_for('show_private_raw', network=network, channel=channel) }}">{{ channel }}</a> | 
+    {% if is_public(session.username, network, channel) %}
+    <a href="{{ url_for('view_mkprivate', network=network, channel=channel) }}">Make private</a> | (public log: <a href="{{ url_for('show_public_raw', user=session["username"], channel=channel, network=network) }}">here</a>)
+    {% else %}
+    <a href="{{ url_for('view_mkpublic', network=network, channel=channel) }}">Make public</a>
+    {% endif %}
+    | <a href="{{ url_for('viewmentions', network=network, channel=channel) }}">View mentions</a>
+    <br />
+    {% endfor %}
+</blockquote>
+{% endfor %}
+{% endblock %}

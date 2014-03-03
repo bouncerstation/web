@@ -1,0 +1,72 @@
+{% set title = title | default('Bouncer Station') %}
+{% set navbar = [
+('/', 'home', 'Home'),
+('/who/', 'who', 'People'),
+('/donations/', 'donate', 'Donate'),
+('/faq/', 'faq', 'FAQ'),
+('/instructions/', 'instruct', 'Help'),
+('/tos/', 'tos', 'TOS'),
+('/support/', 'support', 'Support'),
+('/webchat/', 'webchat', 'Webchat'),
+('http://blog.bouncerstation.com/', 'blog', 'Blog'),
+] -%}
+{% set thispage = thispage | default('home') %}
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="icon" type="image/png" href="/static/favicon.ico">
+        <meta name="description" content="Bouncer Station is a free provider of IRC bouncers that uses ZNC to provide high-uptime bouncers to our users.">
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        </head>
+        <body style="padding-top:60px;">
+            <div class="container">
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <button type="button" class="navbar-toggle" data-toggle=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="/">Bouncer Station</a>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                {% for href, id, caption in navbar %}
+                                <li{% if id == thispage %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            <ul class="nav navbar-nav pull-right">
+                                {% if session.username %}
+                                <li class="pull-right"><a href="https://www.bouncerstation.com/logs/logout/">Logout</a></li>
+                                {% endif %}
+                                <li class="pull-right"><a href="/logs/">ZNC Logs</a></li>
+                                <li class="pull-right"><a href="https://www.bouncerstation.com:8080/">ZNC Webadmin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    {% for i in get_flashed_messages() %}
+                    <div class="alert">{{ i }}</div>
+                    {% endfor %}
+                </div>
+                <div class="container">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+            <!-- Javascript -->
+            <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+            <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            
+              ga('create', 'UA-46753597-1', 'bouncerstation.com');
+              ga('send', 'pageview');
+
+            </script>
+        </body>
+    </html>

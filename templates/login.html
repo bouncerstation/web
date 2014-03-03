@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% set thispage = "login" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h2>Login</h2>
+        <form action="" method="POST">
+            <input type="text" name="username" placeholder="Username..." class="form-control" /> <br />
+            <input type="password" name="password" placeholder="Password..." class="form-control" /> <br />
+            <input type="submit" value="Login" class="btn btn-block btn-primary" />
+        </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+{% endblock %}

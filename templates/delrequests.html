@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for x in r %}
+{{ x }} - <a href="{{ url_for('approve_delete', username=x) }}">approve</a> - <a href="{{ url_for('decline_delete', username=x) }}">decline</a><br />
+{% endfor %}
+{% endblock %}

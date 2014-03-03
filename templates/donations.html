@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% set title = "Bouncer Station" %}
+{% set thispage = "donate" %}
+{% block content %}
+<div class="row row-fluid">
+    <div class="col-sm-12">
+        <h1>Donate</h1>
+        We really, really appreciate donations. You can donate to us using PayPal or Bitcoins (see the buttons below). If you want to know what your donations will go towards, our 
+        budget is also shown below. Are there secret donator benefits? Maybe.
+    </div>
+</div>
+<div class="row row-fluid">
+    <div class="col-sm-12" style="text-align: left; padding-left: 40%;">
+        <a class="btn btn-success btn-large" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XPVC9BBW5DF2">Donate with PayPal</a><br /><br />
+        <a class="coinbase-button" data-code="6390e50fc9090e14d69e3676a0ce12ea" data-button-style="custom_large" href="https://coinbase.com/checkouts/6390e50fc9090e14d69e3676a0ce12ea">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script> 
+    </div>
+    <span style="text-align:center">Donate Dogecoin: DEqqbzWpG1PxR5PAjLBYE7bxcQuqNbf7MA</span> 
+</div>
+<div class="row row-fluid">
+    <div class="col-sm-12">
+        <h1>Budget</h1>
+        <table class="table table-bordered">
+            <tr>
+                <th>Item</th>
+                <th>Monthly cost</th>
+                <th>Yearly cost</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td><b>SSL certificate</b></td>
+                <td></td>
+                <td>$2</td>
+                <td>An SSL certificate allows you to connect securely to our web configuration panel and ZNC.</td>
+            </tr>
+            <tr>
+                <td><b>Domain</b></td>
+                <td></td>
+                <td>$10</td>
+                <td>We hold the <code>bouncerstation.com</code> domain name to make it easy for you to access our services.</td>
+            </tr>
+            <tr>
+                <td><b>VPS</b></td>
+                <td>$11</td>
+                <td>$132</td>
+                <td>Our VPS allows us to actually provide a bouncer.</td>
+            </tr>
+            <tr>
+                <td><i>Total</i></td>
+                <td>$11</td>
+                <td>$144</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

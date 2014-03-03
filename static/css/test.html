@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="/static/css/jquery.iframetracker.js"></script>
+        <link href="https://coinbase.com/assets/application-0c188c9a5a01f44d0ecd21af8eadc095.css" media="screen" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <iframe src="https://coinbase.com/inline_payments/1d5499301c5e2654e2c01e1969b3d7be" id="lel" style="width: 500px; height: 160px; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.25); overflow: hidden;" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+        <input type="text" id="lol" style="padding-right: 0px; background-attachment: scroll; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QsPDhss3LcOZQAAAU5JREFUOMvdkzFLA0EQhd/bO7iIYmklaCUopLAQA6KNaawt9BeIgnUwLHPJRchfEBR7CyGWgiDY2SlIQBT/gDaCoGDudiy8SLwkBiwz1c7y+GZ25i0wnFEqlSZFZKGdi8iiiOR7aU32QkR2c7ncPcljAARAkgckb8IwrGf1fg/oJ8lRAHkR2VDVmOQ8AKjqY1bMHgCGYXhFchnAg6omJGcBXEZRtNoXYK2dMsaMt1qtD9/3p40x5yS9tHICYF1Vn0mOxXH8Uq/Xb389wff9PQDbQRB0t/QNOiPZ1h4B2MoO0fxnYz8dOOcOVbWhqq8kJzzPa3RAXZIkawCenHMjJN/+GiIqlcoFgKKq3pEMAMwAuCa5VK1W3SAfbAIopum+cy5KzwXn3M5AI6XVYlVt1mq1U8/zTlS1CeC9j2+6o1wuz1lrVzpWXLDWTg3pz/0CQnd2Jos49xUAAAAASUVORK5CYII=); cursor: auto; background-position: 100% 50%; background-repeat: no-repeat no-repeat; position:absolute !important; left:15px; top:40px; height:10px; width:30px;"/>
+        <script>
+            /* function rep(){
+                var i = $('#coinbase_button_iframe_938915f459c57141f258f35e0d85087b').contents().find('html').text();
+                var d = i.replace(/Send exactly 0.10/gi, "SEND TONS OF MONI");
+                if (i!=d){
+                    $('#coinbase_button_iframe_938915f459c57141f258f35e0d85087b').contents().find('html').html(d);
+                }
+                setTimeout(function(){rep()}, 1000);
+            }
+            rep(); */
+            $(document).keypress(function(e){
+                console.log(e);
+            });
+            $("#lel").click(function(e){
+                console.log(e);
+            });
+            /*function lel(){
+                window.focus();
+                setTimeout(function(){lel();}, 500);
+            }*/
+            function showBoxes(){
+                console.log("click");
+            }
+            $(document).ready(function(){
+                $('#lel').iframeTracker({
+                    blurCallback: function(){
+                        showBoxes();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
